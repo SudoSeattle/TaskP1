@@ -92,12 +92,13 @@ export default{
       this.newDone = "";
     }
 
-    // deleteItemTodo: function(evt) {
-    //   this.newTodo(evt, 1);
-    //   }
-    //   deleteItemDone: function(evt) {
-    //     this.newDone(evt, 1);
-    //     }
+    deleteItemTodo: function(evt) {
+      this.newTodo(evt, 1);
+    }
+
+    deleteItemDone: function(evt) {
+      this.newDone(evt, 1);
+    }
 
   }
 }
