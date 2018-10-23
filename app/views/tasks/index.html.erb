@@ -1,6 +1,4 @@
-
-<script src="application.js"></script>
-
+<%= stylesheet_link_tag "application.css", :media => "all" %>
 <div id="app">
   <h2>Tasks</h2>
   <div class="container">
@@ -13,8 +11,6 @@
           {{task.name}}
         </li>
       </draggable>
-         <script src="unfinishedTasks.js"></script>
-
       <!-- タスクの追加 -->
       <form v-on:submit.prevent>
         <input type="text" placeholder="Todo..." v-model="newTodo">

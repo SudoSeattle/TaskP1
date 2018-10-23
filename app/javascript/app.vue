@@ -1,4 +1,4 @@
-
+<template>
 <div id="app">
   <h2>Tasks</h2>
   <div class="container">
@@ -37,22 +37,32 @@
     </ul>
   </div>
 </div>
+</template>
 
 
 <script>
-var app = new Vue({
-  el: "#app",
-  data: {
-  	// タスクの初期値
-    unfinishedTasks:[
-      {name:"Meeting"},
-      {name:"Create a document"}
-    ],
-    finishedTasks:[
-      {name:"Yesterday Meeting"},
-      {name:"Yesterday Appointment"}
-    ]
+import draggable from 'vuedraggable';
+
+export default{
+  components:{
+    draggable,
   },
+  data:function(){
+    return{
+    newTodo:"",
+    newDone:"",
+    	// タスクの初期値
+      unfinishedTasks:[
+        {name:"Meeting"},
+        {name:"Create a document"}
+      ],
+      finishedTasks:[
+        {name:"Yesterday Meeting"},
+        {name:"Yesterday Appointment"}
+      ]
+    }
+  },
+
   methods:{
   	// Todoタスクの追加
   	addTodo: function(evt) {
@@ -76,11 +86,11 @@ var app = new Vue({
       this.newDone = "";
     }
   }
-});
+}
 </script>
 
 <style scoped>
-.collection{
+ul.collection{
   float: left;
 }
 
