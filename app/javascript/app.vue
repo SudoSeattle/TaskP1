@@ -9,6 +9,9 @@
                  :options="{group:'tasks'}">
         <li v-for="task in unfinishedTasks" class="collection-item">
           {{task.name}}
+
+          <button v-on:click="deleteItemTod(evt)" class="delete" type="button">Delete</button>
+
         </li>
       </draggable>
       <!-- タスクの追加 -->
@@ -25,6 +28,9 @@
                  :options="{group:'tasks'}">
         <li v-for="task in finishedTasks" class="collection-item">
           {{task.name}}
+
+          <button v-on:click="deleteItemDone(evt)" class="delete" type="button">Delete</button>
+
         </li>
       </draggable>
       <!-- タスクの追加 -->
@@ -85,6 +91,14 @@ export default{
       this.finishedTasks.push(finishedTask);
       this.newDone = "";
     }
+
+    // deleteItemTodo: function(evt) {
+    //   this.newTodo(evt, 1);
+    //   }
+    //   deleteItemDone: function(evt) {
+    //     this.newDone(evt, 1);
+    //     }
+
   }
 }
 </script>
