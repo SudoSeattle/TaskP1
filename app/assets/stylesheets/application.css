@@ -1,0 +1,10 @@
+.collection{
+  float: left;
+}
+
+li.collection-item{
+  width: 200px;
+  list-style: none;
+  border: solid 1px;
+  margin: 5px 0;
+}
