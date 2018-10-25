@@ -90,11 +90,11 @@ export default{
       };
       this.finishedTasks.push(finishedTask);
       this.newDone = "";
-    }
+    },
 
     deleteItemTodo: function(evt) {
       this.newTodo(evt, 1);
-    }
+    },
 
     deleteItemDone: function(evt) {
       this.newDone(evt, 1);
