@@ -10,7 +10,7 @@
         <li v-for="task in unfinishedTasks" class="collection-item">
           {{task.name}}
 
-          <button v-on:click="deleteItemTod(evt)" class="delete" type="button">Delete</button>
+          <button v-on:click="deleteItemTodo(evt)" class="delete" type="button">Delete</button>
 
         </li>
       </draggable>
