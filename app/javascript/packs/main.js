@@ -1,6 +1,6 @@
-import app from 'app.vue'
+import App from '../app.vue'
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from './router/index'
 
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
@@ -28,6 +28,10 @@ Vue.use(VueApollo)
 
 new Vue({
   el: '#app',
-  apolloProvider,
-  render: h => h(App),
+  provide: apolloProvider.provide(),
+  components: {
+    App
+  },
+  router,
+  template: '<App/>'
 })
