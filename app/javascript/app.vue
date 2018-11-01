@@ -5,7 +5,7 @@
     <ul class="collection">
       <h3>Todo</h3>
       <!-- タスクの移動　ドラッグ&ドロップ -->
-      <draggable :list="unfinishedTasks"
+      <draggable class="dd" :list="unfinishedTasks"
                  :options="{group:'tasks'}">
         <li v-for="task in unfinishedTasks" class="collection-item">
           {{task.name}}
@@ -24,7 +24,7 @@
     </ul>
     <ul class="collection">
       <h3>Done</h3>
-      <draggable :list="finishedTasks"
+      <draggable class="dd" :list="finishedTasks"
                  :options="{group:'tasks'}">
         <li v-for="task in finishedTasks" class="collection-item">
           {{task.name}}
@@ -59,12 +59,12 @@ export default{
     newDone:"",
     	// タスクの初期値
       unfinishedTasks:[
-        {name:"Meeting"},
-        {name:"Create a document"}
+        {name:"Task01"},
+        {name:"Task02"}
       ],
       finishedTasks:[
-        {name:"Yesterday Meeting"},
-        {name:"Yesterday Appointment"}
+        {name:"Task03"},
+        {name:"Task04"}
       ]
     }
   },
@@ -115,4 +115,10 @@ li.collection-item{
   border: solid 1px;
   margin: 5px 0;
 }
+
+.dd {
+  margin-bottom: 50px;
+  min-height: 50px;
+}
+
 </style>
