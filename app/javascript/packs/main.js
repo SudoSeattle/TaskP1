@@ -1,37 +1,12 @@
-import App from '../app.vue'
 import Vue from 'vue'
-import Router from './router/index'
+import App from '../app.vue'
 
-import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import VueApollo from 'vue-apollo'
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.body.appendChild(document.createElement('hello'))
+  const app = new Vue({
+    el,
+    render: h => h(App)
+  })
 
-const httpLink = new HttpLink({
-  // You should use an absolute URL here
-  uri: 'http://localhost:3000/graphql',
-})
-
-// Create the apollo client
-const apolloClient = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-  connectToDevTools: true,
-})
-
-const apolloProvider = new VueApollo({
-  defaultClient: apolloClient,
-})
-
-// Install the vue plugin
-Vue.use(VueApollo)
-
-new Vue({
-  el: '#app',
-  provide: apolloProvider.provide(),
-  components: {
-    App
-  },
-  router,
-  template: '<App/>'
+  console.log(app)
 })
