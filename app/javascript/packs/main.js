@@ -1,6 +1,6 @@
 import App from '../app.vue'
 import Vue from 'vue'
-import Router from './router/index'
+// import Router from './router/index'
 
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
@@ -32,6 +32,6 @@ new Vue({
   components: {
     App
   },
-  router,
+  // router,
   template: '<App/>'
 })

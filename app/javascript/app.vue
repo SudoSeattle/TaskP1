@@ -7,10 +7,11 @@
       <!-- タスクの移動　ドラッグ&ドロップ -->
       <draggable class="dd" :list="unfinishedTasks"
                  :options="{group:'tasks'}">
-        <li v-for="task in unfinishedTasks" class="collection-item">
+
+        <li v-for="task in tasks" class="collection-item">
           {{task.name}}
 
-          <button v-on:click="deleteItemTodo(evt)" class="delete" type="button">Delete</button>
+          <!-- <button v-on:click="deleteItemTodo(evt)" class="delete" type="button">Delete</button> -->
 
         </li>
       </draggable>
@@ -48,26 +49,18 @@
 
 <script>
 import draggable from 'vuedraggable';
+import { getCard } from './query/getCard'
 
 export default{
   components:{
     draggable,
   },
-  data:function(){
-    return{
-    newTodo:"",
-    newDone:"",
-    	// タスクの初期値
-      unfinishedTasks:[
-        {name:"Task01"},
-        {name:"Task02"}
-      ],
-      finishedTasks:[
-        {name:"Task03"},
-        {name:"Task04"}
-      ]
-    }
-  },
+  apollo: {
+      // tasksにimportしたgetCardsクエリに対する回答を格納
+      tasks: {
+        query: getCard
+      }
+    },
 
   methods:{
   	// Todoタスクの追加
