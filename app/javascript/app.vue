@@ -5,9 +5,11 @@
     <ul class="collection">
       <h3>Todo</h3>
       <!-- タスクの移動　ドラッグ&ドロップ -->
+
       <draggable class="dd" :list="unfinishedTasks"
                  :options="{group:'tasks'}">
         <li v-for="task in unfinishedTasks" class="collection-item">
+          <!-- <ul v-for="task in tasks"> -->
           {{task.name}}
 
           <button v-on:click="deleteItemTodo(evt)" class="delete" type="button">Delete</button>
@@ -53,6 +55,13 @@ export default{
   components:{
     draggable,
   },
+
+  // apollo: {
+  //     tasks: {
+  //       query: getCards
+  //     }
+  //   },
+
   data:function(){
     return{
     newTodo:"",
