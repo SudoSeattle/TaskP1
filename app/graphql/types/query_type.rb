@@ -1,9 +1,9 @@
 Types::QueryType = GraphQL::ObjectType.define do
-name 'Query'
+  name 'Query'
 
   field :tasks do
     type types[Types::TaskType]
-    resolve -> (obj, args, ctx)  {
+    resolve ->(_obj, _args, _ctx) {
       Task.all
     }
   end

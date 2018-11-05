@@ -1,0 +1,39 @@
+et_link_tag "application.css", :media => "all" %>
+<div id="app">
+  <h2>Tasks</h2>
+  <div class="container">
+    <ul class="collection">
+      <h3>Todo</h3>
+      <!-- タスクの移動　ドラッグ&ドロップ -->
+      <draggable :list="unfinishedTasks"
+                 :options="{group:'tasks'}">
+        <li v-for="task in unfinishedTasks" class="collection-item">
+          {{task.name}}
+        </li>
+      </draggable>
+      <!-- タスクの追加 -->
+      <form v-on:submit.prevent>
+        <input type="text" placeholder="Todo..." v-model="newTodo">
+        <button v-on:click="addTodo">
+          Add
+        </button>
+      </form>
+    </ul>
+    <ul class="collection">
+      <h3>Done</h3>
+      <draggable :list="finishedTasks"
+                 :options="{group:'tasks'}">
+        <li v-for="task in finishedTasks" class="collection-item">
+          {{task.name}}
+        </li>
+      </draggable>
+      <!-- タスクの追加 -->
+      <form v-on:submit.prevent>
+        <input type="text" placeholder="Done..." v-model="newDone">
+        <button v-on:click="addDone">
+          Add
+        </button>
+      </form>
+    </ul>
+  </div>
+</div>
